@@ -61,24 +61,32 @@
 
     nav button {
       margin-left: 1rem;
-      padding: 0.6rem 1.2rem;
+      padding: 0.65rem 1.5rem;
       font-size: 1rem;
       font-weight: 600;
-      background-color: white;
+      background: linear-gradient(135deg, #ffffff, #e3f2fd);
       color: #0074cc;
-      border: none;
-      border-radius: 6px;
+      border: 1px solid #cfd8dc;
+      border-radius: 12px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 116, 204, 0.1);
+      position: relative;
+      overflow: hidden;
     }
 
     nav button:hover {
-      background-color: #e3f2fd;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      color: #005fa3;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0, 116, 204, 0.2);
     }
 
     nav button.active {
-      background-color: #005fa3;
+      background: linear-gradient(135deg, #0074cc, #005fa3);
       color: white;
+      border: none;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
     }
 
     .hamburger {
