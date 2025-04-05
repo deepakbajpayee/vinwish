@@ -32,12 +32,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
     }
 
     header .logo {
@@ -48,6 +45,12 @@
     header .logo img {
       height: 60px;
       margin-right: 1rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     nav button {
@@ -72,15 +75,46 @@
       color: white;
     }
 
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 1rem;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      nav button {
+        margin: 0.5rem 0;
+        width: 100%;
+      }
+    }
+
     #mainContent {
       flex: 1;
       padding: 3rem;
-      /*margin: 2rem auto;*/
       width: 100%;
       border-radius: 16px;
       position: relative;
       overflow: hidden;
       height: 84vh;
+      z-index: 1;
     }
 
     #mainContent::before {
@@ -209,9 +243,9 @@
     <header>
       <div class="logo">
         <img src="image/logo.png" alt="VinWish">
-        <h1>VinWish</h1>
       </div>
-      <nav>
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <nav id="navMenu">
         <button onclick="showContent('home', this)" class="active">Home</button>
         <button onclick="showContent('products', this)">Products</button>
         <button onclick="showContent('about', this)">About</button>
@@ -255,6 +289,13 @@
   </div>
 
   <script>
+
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('show');
+    }
+
+
     function showContent(tab, element) {
 
       const backgroundAnimation = `
